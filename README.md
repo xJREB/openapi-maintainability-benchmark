@@ -11,7 +11,8 @@ This repo contains a maintainability benchmark of publicly available OpenAPI spe
 1. Carefully read the [rating guide](rating-scheme-guide.md), then download and examine the [rating scheme](https://github.com/xJREB/openapi-maintainability-benchmark/raw/master/rating-scheme.xlsx).
 2. While keeping the schema in mind, analyze each API.
    - Read the description of the API.
-   - Navigate to OpenAPI file and analyze its contents. You can also download the repo to your machine to ease browsing.
+   - Navigate to the OpenAPI file and analyze its contents. You can also download the repo to your machine to ease browsing.
    - Create a preliminary rating for the API based on your analysis. Provide comments for your rationale, if appropriate.
 3. After analyzing all APIs, refine the preliminary ratings based on your newly-gained insights.
-4. Send the filled out rating scheme back to us via email.
+4. Fill in the demographic data in the second tab of the rating scheme.
+5. Send the filled out rating scheme back to us via email.
