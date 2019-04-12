@@ -6,28 +6,13 @@ info:
   description: Creates and manages your customers and their subscriptions.
   title: Enterprise Apps Reseller
   version: v1
-  x-apiClientRegistration:
-    url: https://console.developers.google.com
-  x-apisguru-categories:
-    - enterprise
-  x-logo:
-    url: https://www.gstatic.com/images/icons/material/product/2x/admin_64dp.png
-  x-origin:
-    - converter:
-        url: https://github.com/lucybot/api-spec-converter
-        version: 2.7.31
-      format: google
-      url: https://www.googleapis.com/discovery/v1/apis/reseller/v1/rest
-      version: v1
-  x-preferred: true
-  x-providerName: googleapis.com
-  x-serviceName: reseller
 externalDocs:
   url: https://developers.google.com/google-apps/reseller/
 tags:
   - name: customers
   - name: resellernotify
   - name: subscriptions
+
 paths:
   /customers:
     parameters:
@@ -42,7 +27,8 @@ paths:
       description: Order a new customer's account.
       operationId: reseller.customers.insert
       parameters:
-        - description: The customerAuthToken query string is required when creating a
+        - description:
+            The customerAuthToken query string is required when creating a
             resold account that transfers a direct customer's subscription or
             transfers another reseller customer's subscription to your reseller
             management. This is a hexadecimal authentication token needed to
@@ -71,7 +57,8 @@ paths:
       description: Get a customer account.
       operationId: reseller.customers.get
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -103,11 +90,13 @@ paths:
       - $ref: "#/components/parameters/quotaUser"
       - $ref: "#/components/parameters/userIp"
     patch:
-      description: Update a customer account's settings. This method supports patch
+      description:
+        Update a customer account's settings. This method supports patch
         semantics.
       operationId: reseller.customers.patch
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -134,7 +123,8 @@ paths:
       description: Update a customer account's settings.
       operationId: reseller.customers.update
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -170,7 +160,8 @@ paths:
       description: Create or transfer a subscription.
       operationId: reseller.subscriptions.insert
       parameters:
-        - description: The customerAuthToken query string is required when creating a
+        - description:
+            The customerAuthToken query string is required when creating a
             resold account that transfers a direct customer's subscription or
             transfers another reseller customer's subscription to your reseller
             management. This is a hexadecimal authentication token needed to
@@ -180,7 +171,8 @@ paths:
           name: customerAuthToken
           schema:
             type: string
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -211,7 +203,8 @@ paths:
       description: Cancel or transfer a subscription to direct.
       operationId: reseller.subscriptions.delete
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -220,7 +213,8 @@ paths:
           required: true
           schema:
             type: string
-        - description: The deletionType query string enables the cancellation, downgrade,
+        - description:
+            The deletionType query string enables the cancellation, downgrade,
             or suspension of a subscription.
           in: query
           name: deletionType
@@ -230,7 +224,8 @@ paths:
             enum:
               - cancel
               - transfer_to_direct
-        - description: This is a required property. The subscriptionId is the subscription
+        - description:
+            This is a required property. The subscriptionId is the subscription
             identifier and is unique for each customer. Since a subscriptionId
             changes when a subscription is updated, we recommend to not use this
             ID as a key for persistent data. And the subscriptionId can be found
@@ -252,7 +247,8 @@ paths:
       description: Get a specific subscription.
       operationId: reseller.subscriptions.get
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -261,7 +257,8 @@ paths:
           required: true
           schema:
             type: string
-        - description: This is a required property. The subscriptionId is the subscription
+        - description:
+            This is a required property. The subscriptionId is the subscription
             identifier and is unique for each customer. Since a subscriptionId
             changes when a subscription is updated, we recommend to not use this
             ID as a key for persistent data. And the subscriptionId can be found
@@ -306,7 +303,8 @@ paths:
       description: Activates a subscription previously suspended by the reseller
       operationId: reseller.subscriptions.activate
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -315,7 +313,8 @@ paths:
           required: true
           schema:
             type: string
-        - description: This is a required property. The subscriptionId is the subscription
+        - description:
+            This is a required property. The subscriptionId is the subscription
             identifier and is unique for each customer. Since a subscriptionId
             changes when a subscription is updated, we recommend to not use this
             ID as a key for persistent data. And the subscriptionId can be found
@@ -347,12 +346,14 @@ paths:
       - $ref: "#/components/parameters/quotaUser"
       - $ref: "#/components/parameters/userIp"
     post:
-      description: Update a subscription plan. Use this method to update a plan for a
+      description:
+        Update a subscription plan. Use this method to update a plan for a
         30-day trial or a flexible plan subscription to an annual commitment
         plan with monthly or yearly payments.
       operationId: reseller.subscriptions.changePlan
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -361,7 +362,8 @@ paths:
           required: true
           schema:
             type: string
-        - description: This is a required property. The subscriptionId is the subscription
+        - description:
+            This is a required property. The subscriptionId is the subscription
             identifier and is unique for each customer. Since a subscriptionId
             changes when a subscription is updated, we recommend to not use this
             ID as a key for persistent data. And the subscriptionId can be found
@@ -388,8 +390,8 @@ paths:
             - https://www.googleapis.com/auth/apps.order
       tags:
         - subscriptions
-  "/customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings":
-    parameters:
+  ? "/customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings"
+  : parameters:
       - $ref: "#/components/parameters/alt"
       - $ref: "#/components/parameters/fields"
       - $ref: "#/components/parameters/key"
@@ -398,11 +400,13 @@ paths:
       - $ref: "#/components/parameters/quotaUser"
       - $ref: "#/components/parameters/userIp"
     post:
-      description: Update a user license's renewal settings. This is applicable for
+      description:
+        Update a user license's renewal settings. This is applicable for
         accounts with annual commitment plans only.
       operationId: reseller.subscriptions.changeRenewalSettings
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -411,7 +415,8 @@ paths:
           required: true
           schema:
             type: string
-        - description: This is a required property. The subscriptionId is the subscription
+        - description:
+            This is a required property. The subscriptionId is the subscription
             identifier and is unique for each customer. Since a subscriptionId
             changes when a subscription is updated, we recommend to not use this
             ID as a key for persistent data. And the subscriptionId can be found
@@ -451,7 +456,8 @@ paths:
       description: Update a subscription's user license settings.
       operationId: reseller.subscriptions.changeSeats
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -460,7 +466,8 @@ paths:
           required: true
           schema:
             type: string
-        - description: This is a required property. The subscriptionId is the subscription
+        - description:
+            This is a required property. The subscriptionId is the subscription
             identifier and is unique for each customer. Since a subscriptionId
             changes when a subscription is updated, we recommend to not use this
             ID as a key for persistent data. And the subscriptionId can be found
@@ -497,11 +504,13 @@ paths:
       - $ref: "#/components/parameters/quotaUser"
       - $ref: "#/components/parameters/userIp"
     post:
-      description: Immediately move a 30-day free trial subscription to a paid service
+      description:
+        Immediately move a 30-day free trial subscription to a paid service
         subscription.
       operationId: reseller.subscriptions.startPaidService
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -510,7 +519,8 @@ paths:
           required: true
           schema:
             type: string
-        - description: This is a required property. The subscriptionId is the subscription
+        - description:
+            This is a required property. The subscriptionId is the subscription
             identifier and is unique for each customer. Since a subscriptionId
             changes when a subscription is updated, we recommend to not use this
             ID as a key for persistent data. And the subscriptionId can be found
@@ -545,7 +555,8 @@ paths:
       description: Suspends an active subscription.
       operationId: reseller.subscriptions.suspend
       parameters:
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -554,7 +565,8 @@ paths:
           required: true
           schema:
             type: string
-        - description: This is a required property. The subscriptionId is the subscription
+        - description:
+            This is a required property. The subscriptionId is the subscription
             identifier and is unique for each customer. Since a subscriptionId
             changes when a subscription is updated, we recommend to not use this
             ID as a key for persistent data. And the subscriptionId can be found
@@ -664,12 +676,14 @@ paths:
         - resellernotify
   /subscriptions:
     get:
-      description: List of subscriptions managed by the reseller. The list can be all
+      description:
+        List of subscriptions managed by the reseller. The list can be all
         subscriptions, all of a customer's subscriptions, or all of a customer's
         transferable subscriptions.
       operationId: reseller.subscriptions.list
       parameters:
-        - description: The customerAuthToken query string is required when creating a
+        - description:
+            The customerAuthToken query string is required when creating a
             resold account that transfers a direct customer's subscription or
             transfers another reseller customer's subscription to your reseller
             management. This is a hexadecimal authentication token needed to
@@ -679,7 +693,8 @@ paths:
           name: customerAuthToken
           schema:
             type: string
-        - description: Either the customer's primary domain name or the customer's unique
+        - description:
+            Either the customer's primary domain name or the customer's unique
             identifier. If using the domain name, we do not recommend using a
             customerId as a key for persistent data. If the domain name for a
             customerId is changed, the Google system automatically updates.
@@ -700,7 +715,8 @@ paths:
           name: customerNamePrefix
           schema:
             type: string
-        - description: When retrieving a large list, the maxResults is the maximum number
+        - description:
+            When retrieving a large list, the maxResults is the maximum number
             of results per page. The nextPageToken value takes you to the next
             page. The default is 20.
           in: query
@@ -756,7 +772,8 @@ components:
       schema:
         type: string
     key:
-      description: API key. Your API key identifies your project and provides you with API
+      description:
+        API key. Your API key identifies your project and provides you with API
         access, quota, and reports. Required unless you provide an OAuth 2.0
         token.
       in: query
@@ -777,7 +794,8 @@ components:
         type: boolean
         default: true
     quotaUser:
-      description: An opaque string that represents a user for quota purposes. Must not
+      description:
+        An opaque string that represents a user for quota purposes. Must not
         exceed 40 characters.
       in: query
       name: quotaUser
@@ -810,7 +828,8 @@ components:
       description: JSON template for address of a customer.
       properties:
         addressLine1:
-          description: A customer's physical address. An address can be composed of one to
+          description:
+            A customer's physical address. An address can be composed of one to
             three lines. The addressline2 and addressLine3 are optional.
           type: string
         addressLine2:
@@ -823,7 +842,8 @@ components:
           description: The customer contact's name. This is required.
           type: string
         countryCode:
-          description: For countryCode information, see the ISO 3166 country code elements.
+          description:
+            For countryCode information, see the ISO 3166 country code elements.
             Verify that country is approved for resale of Google products. This
             property is required when creating a new customer.
           type: string
@@ -839,7 +859,8 @@ components:
           description: The company or company division name. This is required.
           type: string
         postalCode:
-          description: A postalCode example is a postal zip code such as 94043. This
+          description:
+            A postalCode example is a postal zip code such as 94043. This
             property is required when creating a new customer.
           type: string
         region:
@@ -850,7 +871,8 @@ components:
       description: JSON template for the ChangePlan rpc request.
       properties:
         dealCode:
-          description: Google-issued code (100 char max) for discounted pricing on
+          description:
+            Google-issued code (100 char max) for discounted pricing on
             subscription plans. Deal code must be included in changePlan request
             in order to receive discounted rate. This property is optional. If a
             deal code has already been added to a subscription, this property
@@ -862,7 +884,8 @@ components:
           type: string
         kind:
           default: subscriptions#changePlanRequest
-          description: "Identifies the resource as a subscription change plan request.
+          description:
+            "Identifies the resource as a subscription change plan request.
             Value: subscriptions#changePlanRequest"
           type: string
         planName:
@@ -883,7 +906,8 @@ components:
             - TRIAL - The 30-day free trial plan
           type: string
         purchaseOrderId:
-          description: This is an optional property. This purchase order (PO) information
+          description:
+            This is an optional property. This purchase order (PO) information
             is for resellers to use for their company tracking usage. If a
             purchaseOrderId value is given it appears in the API responses and
             shows up in the invoice. The property accepts up to 80 plain text
@@ -896,14 +920,16 @@ components:
       description: JSON template for a customer.
       properties:
         alternateEmail:
-          description: Like the "Customer email" in the reseller tools, this email is the
+          description:
+            Like the "Customer email" in the reseller tools, this email is the
             secondary contact used if something happens to the customer's
             service such as service outage or a security issue. This property is
             required when creating a new customer and should not use the same
             domain as customerDomain.
           type: string
         customerDomain:
-          description: The customer's primary domain name string. customerDomain is
+          description:
+            The customer's primary domain name string. customerDomain is
             required when creating a new customer. Do not include the www prefix
             in the domain when adding a customer.
           type: string
@@ -911,7 +937,8 @@ components:
           description: Whether the customer's primary domain has been verified.
           type: boolean
         customerId:
-          description: This property will always be returned in a response as the unique
+          description:
+            This property will always be returned in a response as the unique
             identifier generated by Google. In a request, this property can be
             either the primary domain or the unique identifier generated by
             Google.
@@ -921,7 +948,8 @@ components:
           description: "Identifies the resource as a customer. Value: reseller#customer"
           type: string
         phoneNumber:
-          description: Customer contact phone number. Must start with "+" followed by the
+          description:
+            Customer contact phone number. Must start with "+" followed by the
             country code. The rest of the number can be contiguous numbers or
             respect the phone local format conventions, but it must be a real
             phone number and not, for example, "123". This field is silently
@@ -930,7 +958,8 @@ components:
         postalAddress:
           $ref: "#/components/schemas/Address"
         resourceUiUrl:
-          description: URL to customer's Admin console dashboard. The read-only URL is
+          description:
+            URL to customer's Admin console dashboard. The read-only URL is
             generated by the API service. This is used if your client
             application requires the customer to complete a task in the Admin
             console.
@@ -941,11 +970,13 @@ components:
       properties:
         kind:
           default: subscriptions#renewalSettings
-          description: "Identifies the resource as a subscription renewal setting. Value:
+          description:
+            "Identifies the resource as a subscription renewal setting. Value:
             subscriptions#renewalSettings"
           type: string
         renewalType:
-          description: Renewal settings for the annual commitment plan. For more detailed
+          description:
+            Renewal settings for the annual commitment plan. For more detailed
             information, see renewal options in the administrator help center.
             When renewing a subscription, the renewalType is a required
             property.
@@ -975,18 +1006,21 @@ components:
       properties:
         kind:
           default: subscriptions#seats
-          description: "Identifies the resource as a subscription seat setting. Value:
+          description:
+            "Identifies the resource as a subscription seat setting. Value:
             subscriptions#seats"
           type: string
         licensedNumberOfSeats:
-          description: "Read-only field containing the current number of users that are
+          description:
+            "Read-only field containing the current number of users that are
             assigned a license for the product defined in skuId. This field's
             value is equivalent to the numerical count of users returned by the
             Enterprise License Manager API method: listForProductAndSku"
           format: int32
           type: integer
         maximumNumberOfSeats:
-          description: "This is a required property and is exclusive to subscriptions with
+          description:
+            "This is a required property and is exclusive to subscriptions with
             FLEXIBLE or TRIAL plans. This property sets the maximum number of
             licensed users allowed on a subscription. This quantity can be
             increased up to the maximum limit defined in the reseller's
@@ -996,7 +1030,8 @@ components:
           format: int32
           type: integer
         numberOfSeats:
-          description: "This is a required property and is exclusive to subscriptions with
+          description:
+            "This is a required property and is exclusive to subscriptions with
             ANNUAL_MONTHLY_PAY and ANNUAL_YEARLY_PAY plans. This property sets
             the maximum number of licenses assignable to users on a
             subscription. The reseller can add more licenses, but once set, the
@@ -1011,11 +1046,13 @@ components:
       description: JSON template for a subscription.
       properties:
         billingMethod:
-          description: Read-only field that returns the current billing method for a
+          description:
+            Read-only field that returns the current billing method for a
             subscription.
           type: string
         creationTime:
-          description: The creationTime property is the date when subscription was created.
+          description:
+            The creationTime property is the date when subscription was created.
             It is in milliseconds using the Epoch format. See an example Epoch
             converter.
           format: int64
@@ -1024,13 +1061,15 @@ components:
           description: Primary domain name of the customer
           type: string
         customerId:
-          description: This property will always be returned in a response as the unique
+          description:
+            This property will always be returned in a response as the unique
             identifier generated by Google. In a request, this property can be
             either the primary domain or the unique identifier generated by
             Google.
           type: string
         dealCode:
-          description: Google-issued code (100 char max) for discounted pricing on
+          description:
+            Google-issued code (100 char max) for discounted pricing on
             subscription plans. Deal code must be included in insert requests in
             order to receive discounted rate. This property is optional, regular
             pricing applies if left empty.
@@ -1041,13 +1080,15 @@ components:
             reseller#subscription"
           type: string
         plan:
-          description: The plan property is required. In this version of the API, the G
+          description:
+            The plan property is required. In this version of the API, the G
             Suite plans are the flexible plan, annual commitment plan, and the
             30-day free trial plan. For more information about the API"s payment
             plans, see the API concepts.
           properties:
             commitmentInterval:
-              description: "In this version of the API, annual commitment plan's interval
+              description:
+                "In this version of the API, annual commitment plan's interval
                 is one year.  Note: When billingMethod value is OFFLINE, the
                 subscription property object plan.commitmentInterval is omitted
                 in all API responses."
@@ -1059,7 +1100,8 @@ components:
                   format: int64
                   type: string
                 startTime:
-                  description: An annual commitment plan's interval's startTime in
+                  description:
+                    An annual commitment plan's interval's startTime in
                     milliseconds using UNIX Epoch format. See an example Epoch
                     converter.
                   format: int64
@@ -1095,7 +1137,8 @@ components:
               type: string
           type: object
         purchaseOrderId:
-          description: This is an optional property. This purchase order (PO) information
+          description:
+            This is an optional property. This purchase order (PO) information
             is for resellers to use for their company tracking usage. If a
             purchaseOrderId value is given it appears in the API responses and
             shows up in the invoice. The property accepts up to 80 plain text
@@ -1104,7 +1147,8 @@ components:
         renewalSettings:
           $ref: "#/components/schemas/RenewalSettings"
         resourceUiUrl:
-          description: URL to customer's Subscriptions page in the Admin console. The
+          description:
+            URL to customer's Subscriptions page in the Admin console. The
             read-only URL is generated by the API service. This is used if your
             client application requires the customer to complete a task using
             the Subscriptions page in the Admin console.
@@ -1112,13 +1156,15 @@ components:
         seats:
           $ref: "#/components/schemas/Seats"
         skuId:
-          description: A required property. The skuId is a unique system identifier for a
+          description:
+            A required property. The skuId is a unique system identifier for a
             product's SKU assigned to a customer in the subscription. For
             products and SKUs available in this version of the API, see  Product
             and SKU IDs.
           type: string
         skuName:
-          description: Read-only external display name for a product's SKU assigned to a
+          description:
+            Read-only external display name for a product's SKU assigned to a
             customer in the subscription. SKU names are subject to change at
             Google's discretion. For products and SKUs available in this version
             of the API, see  Product and SKU IDs.
@@ -1127,7 +1173,8 @@ components:
           description: This is an optional property.
           type: string
         subscriptionId:
-          description: The subscriptionId is the subscription identifier and is unique for
+          description:
+            The subscriptionId is the subscription identifier and is unique for
             each customer. This is a required property. Since a subscriptionId
             changes when a subscription is updated, we recommend not using this
             ID as a key for persistent data. Use the subscriptionId as described
@@ -1157,25 +1204,29 @@ components:
             type: string
           type: array
         transferInfo:
-          description: Read-only transfer related information for the subscription. For
+          description:
+            Read-only transfer related information for the subscription. For
             more information, see retrieve transferable subscriptions for a
             customer.
           properties:
             minimumTransferableSeats:
-              description: When inserting a subscription, this is the minimum number of
+              description:
+                When inserting a subscription, this is the minimum number of
                 seats listed in the transfer order for this product. For
                 example, if the customer has 20 users, the reseller cannot place
                 a transfer order of 15 seats. The minimum is 20 seats.
               format: int32
               type: integer
             transferabilityExpirationTime:
-              description: The time when transfer token or intent to transfer will expire.
+              description:
+                The time when transfer token or intent to transfer will expire.
                 The time is in milliseconds using UNIX Epoch format.
               format: int64
               type: string
           type: object
         trialSettings:
-          description: The G Suite annual commitment and flexible payment plans can be in a
+          description:
+            The G Suite annual commitment and flexible payment plans can be in a
             30-day free trial. For more information, see the API concepts.
           properties:
             isInTrial:
@@ -1188,7 +1239,8 @@ components:
                 - false — The plan is not in trial.
               type: boolean
             trialEndTime:
-              description: Date when the trial ends. The value is in milliseconds using the
+              description:
+                Date when the trial ends. The value is in milliseconds using the
                 UNIX Epoch format. See an example Epoch converter.
               format: int64
               type: string
@@ -1199,11 +1251,13 @@ components:
       properties:
         kind:
           default: reseller#subscriptions
-          description: "Identifies the resource as a collection of subscriptions. Value:
+          description:
+            "Identifies the resource as a collection of subscriptions. Value:
             reseller#subscriptions"
           type: string
         nextPageToken:
-          description: The continuation token, used to page through large result sets.
+          description:
+            The continuation token, used to page through large result sets.
             Provide this value in a subsequent request to return the next page
             of results.
           type: string

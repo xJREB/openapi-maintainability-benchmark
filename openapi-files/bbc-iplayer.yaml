@@ -13,27 +13,12 @@ info:
     url: 'https://opensource.org/licenses/MIT'
   title: BBC iPlayer Business Layer
   version: '1.0'
-  x-apisguru-categories:
-    - media
-  x-logo:
-    backgroundColor: '#FFFFFF'
-    url: 'http://static.bbci.co.uk/tviplayer/1.101.2/img/navigation/iplayer_pink.svg'
-  x-origin:
-    - converter:
-        url: 'https://github.com/lucybot/api-spec-converter'
-        version: 2.7.11
-      format: openapi
-      url: 'https://raw.githubusercontent.com/Mermade/bbcparse/master/iblApi/openapi.yaml'
-      version: '3.0'
-  x-providerName: bbci.co.uk
-  x-release: 1.0.0-402
-  x-schema-id: 'https://ibl.api.bbci.co.uk/ibl/v1/schema/ibl.json'
-  x-unofficialSpec: true
 externalDocs:
   description: BBC iPlayer documentation
   url: 'http://smethur.st/posts/176135860'
 security:
   - api_key: []
+  
 paths:
   '/atoz/{letter}/programmes':
     get:

@@ -4,44 +4,16 @@ info:
   x-release: v4
   title: Amazon Transcribe Service
   description: Operations and objects for transcribing speech to text.
-  x-logo:
-    url: https://twitter.com/awscloud/profile_image?size=original
-    backgroundColor: "#FFFFFF"
   termsOfService: https://aws.amazon.com/service-terms/
-  contact:
-    name: Mike Ralphson
-    email: mike.ralphson@gmail.com
-    url: https://github.com/mermade/aws2openapi
-    x-twitter: PermittedSoc
-  license:
-    name: Apache 2.0 License
-    url: http://www.apache.org/licenses/
-  x-providerName: amazonaws.com
-  x-serviceName: transcribe
-  x-origin:
-    - contentType: application/json
-      url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/transcribe-2017-10-26.normal.json
-      converter:
-        url: https://github.com/mermade/aws2openapi
-        version: 1.0.0
-      x-apisguru-direct: true
-  x-apiClientRegistration:
-    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
-  x-apisguru-categories:
-    - cloud
-  x-preferred: true
-externalDocs:
-  description: Amazon Web Services documentation
-  url: https://docs.aws.amazon.com/transcribe/
-x-hasEquivalentPaths: true
 security:
-  - hmac:
-      []
+  - hmac: []
+
 paths:
   /:
     post:
       operationId: CreateVocabulary
-      description: "Creates a new custom vocabulary that you can use to change the way
+      description:
+        "Creates a new custom vocabulary that you can use to change the way
         Amazon Transcribe handles transcription of an audio file. "
       responses:
         "200":
@@ -93,7 +65,8 @@ paths:
   /#DeleteTranscriptionJob:
     post:
       operationId: DeleteTranscriptionJob
-      description: Deletes a previously submitted transcription job along with any other
+      description:
+        Deletes a previously submitted transcription job along with any other
         generated results such as the transcription, models, and so on.
       responses:
         "200":
@@ -182,7 +155,8 @@ paths:
   /#GetTranscriptionJob:
     post:
       operationId: GetTranscriptionJob
-      description: Returns information about a transcription job. To see the status of the
+      description:
+        Returns information about a transcription job. To see the status of the
         job, check the TranscriptionJobStatus field. If the status
         is COMPLETED, the job is finished and you can find the
         results at the location specified in the
@@ -346,7 +320,8 @@ paths:
   /#ListVocabularies:
     post:
       operationId: ListVocabularies
-      description: Returns a list of vocabularies that match the specified criteria. If no
+      description:
+        Returns a list of vocabularies that match the specified criteria. If no
         criteria are specified, returns the entire list of vocabularies.
       responses:
         "200":
@@ -606,14 +581,10 @@ components:
           $ref: "#/components/schemas/Phrases"
         VocabularyFileUri:
           $ref: "#/components/schemas/Uri"
-    BadRequestException:
-      {}
-    LimitExceededException:
-      {}
-    InternalFailureException:
-      {}
-    ConflictException:
-      {}
+    BadRequestException: {}
+    LimitExceededException: {}
+    InternalFailureException: {}
+    ConflictException: {}
     DeleteTranscriptionJobRequest:
       type: object
       required:
@@ -628,8 +599,7 @@ components:
       properties:
         VocabularyName:
           $ref: "#/components/schemas/VocabularyName"
-    NotFoundException:
-      {}
+    NotFoundException: {}
     GetTranscriptionJobResponse:
       type: object
       properties:
@@ -825,7 +795,8 @@ components:
           $ref: "#/components/schemas/FailureReason"
         Settings:
           $ref: "#/components/schemas/Settings"
-      description: "Describes an asynchronous transcription job that was created with the
+      description:
+        "Describes an asynchronous transcription job that was created with the
         StartTranscriptionJob operation. "
     TranscriptionJobStatus:
       type: string

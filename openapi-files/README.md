@@ -10,13 +10,13 @@ API provided by Amazon that lets users convert audio files to text. Furthermore,
 
 ## BBC iPlayer
 
-Receive information about the BBC programm. Filter programm by categories, starting characters etc, search programm, etc.
+Receive information about the BBC programm. Filter programm by categories, starting characters etc. Search programm.
 
 > [bbc-iplayer.yaml](bbc-iplayer.yaml)
 
 ## BBC Nitro
 
-Receive metadata about BBC's programm, e.g. filter programm by starting time.
+Receive metadata about BBC's programm, e.g. filter programm by starting time, find people behind the shows etc.
 
 > [bbc-nitro.yaml](bbc-nitro.yaml)
 
@@ -34,7 +34,7 @@ Receive job postings from the govermental servers. Receive jobs types with help 
 
 ## TomTom Maps
 
-Returns maps of requested areas.
+Returns maps of requested areas. Different zoom levels are available. The maps are either returned as vector tiles or square images.
 
 > [tomtom-map.yaml](tomtom-map.yaml)
 
@@ -46,6 +46,6 @@ Calculates routes for given origin and destination. Additional parameters as way
 
 ## TomTom Search
 
-Search for addresses, e.g. search for restaurant in a specific town.
+Search for addresses, e.g. search for restaurant in a specific town. Latitude and Longitude of the searched for item are returned.
 
 > [tomtom-search.yaml](tomtom-search.yaml)

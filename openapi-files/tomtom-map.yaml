@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://api.tomtom.com'
+  - url: "https://api.tomtom.com"
 info:
   contact:
     x-twitter: TomTom
@@ -13,23 +13,11 @@ info:
       The Maps Vector Service delivers geographic map data packaged in a vector representation of squared sections called vector tiles. Each tile includes pre-defined collections of map features (points, lines, road shapes, water polygons, building footprints, ect.) delivered in one of the specified vector formats. Format of the tile is formally described using protobuf schema.
   title: Maps
   version: 1.0.0
-  x-apisguru-categories:
-    - location
-  x-logo:
-    url: 'https://twitter.com/TomTom/profile_image?size=original'
-  x-origin:
-    - converter:
-        url: 'https://github.com/lucybot/api-spec-converter'
-        version: 2.7.31
-      format: openapi
-      url: 'https://developer.tomtom.com/system/files/swagger_models/maps_api_0.yaml'
-      version: '3.0'
-  x-providerName: tomtom.com
-  x-serviceName: maps
+
 security:
   - api_key: []
 paths:
-  '/map/{versionNumber}/copyrights.{format}':
+  "/map/{versionNumber}/copyrights.{format}":
     get:
       description: |-
         The Copyrights API returns copyright information for
@@ -62,26 +50,26 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '304':
+        "304":
           description: <b>Not Modified</b>
-        '400':
+        "400":
           description: |-
             <b>Malformed request</b>: malformed syntax. Possible causes include:
               - requested syntax is not available
-        '403':
-          description: '<b>Forbidden</b>: Supplied API key is not valid for this request'
-        '410':
-          description: '<b>Gone</b>: Request for unsupported format'
-        '500':
+        "403":
+          description: "<b>Forbidden</b>: Supplied API key is not valid for this request"
+        "410":
+          description: "<b>Gone</b>: Request for unsupported format"
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
             API service
       summary: Copyrights whole world
       tags:
         - Copyrights
-  '/map/{versionNumber}/copyrights/caption.{format}':
+  "/map/{versionNumber}/copyrights/caption.{format}":
     get:
       description: This API returns copyright captions for the map service.
       parameters:
@@ -111,27 +99,27 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '304':
+        "304":
           description: <b>Not Modified</b>
-        '400':
+        "400":
           description: |-
             <b>Malformed request</b>: malformed syntax. Possible causes include:
               - requested syntax is not available
-        '403':
-          description: '<b>Forbidden</b>: Supplied API key is not valid for this request'
-        '410':
-          description: '<b>Gone</b>: Request for unsupported format'
-        '500':
+        "403":
+          description: "<b>Forbidden</b>: Supplied API key is not valid for this request"
+        "410":
+          description: "<b>Gone</b>: Request for unsupported format"
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
             API service
       summary: Captions
       tags:
         - Copyrights
-  '/map/{versionNumber}/copyrights/{minLon}/{minLat}/{maxLon}/{maxLat}.{format}':
-    get:
+  ? "/map/{versionNumber}/copyrights/{minLon}/{minLat}/{maxLon}/{maxLat}.{format}"
+  : get:
       description: |-
         The Copyrights API returns copyright information for
         the Maps API Raster Tile Service in JSON, JSONP, or XML format.
@@ -191,33 +179,33 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '304':
+        "304":
           description: <b>Not Modified</b>
-        '400':
+        "400":
           description: |-
             <b>Malformed request</b>: malformed syntax. Possible causes include:
               - requested syntax is not available
-        '401':
+        "401":
           description: |-
             <b>Bad request</b>: Parameters out of range. Possible causes include:
               - minLon n is out of range [-180,180]: the requested minimum longitude coordinate is out of possible range
               - minLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range
               - maxLon n is out of range [-180,180]: the requested maximum longitude coordinate is out of possible range
               - maxLat n is out of range [-90,90]: the requested minimum latitude coordinate is out of possible range
-        '403':
-          description: '<b>Forbidden</b>: Supplied API key is not valid for this request'
-        '410':
-          description: '<b>Gone</b>: Request for unsupported format'
-        '500':
+        "403":
+          description: "<b>Forbidden</b>: Supplied API key is not valid for this request"
+        "410":
+          description: "<b>Gone</b>: Request for unsupported format"
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
             API service
       summary: Copyrights bounding box
       tags:
         - Copyrights
-  '/map/{versionNumber}/copyrights/{zoom}/{X}/{Y}.{format}':
+  "/map/{versionNumber}/copyrights/{zoom}/{X}/{Y}.{format}":
     get:
       description: |-
         The Copyrights API returns copyright information for
@@ -286,7 +274,7 @@ paths:
             copyright calls.
           example: 0
           in: path
-          name: 'Y'
+          name: "Y"
           required: true
           schema:
             type: integer
@@ -297,32 +285,32 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '304':
+        "304":
           description: <b>Not Modified</b>
-        '400':
+        "400":
           description: |-
             <b>Malformed request</b>: malformed syntax. Possible causes include:
               - requested syntax is not available
-        '401':
+        "401":
           description: |-
             <b>Bad request</b>: Parameters out of range. Possible causes include:
               - zoom n is out of range 0 <= zoom < 19: the requested zoom level is out of the possible range
               - x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)
               - y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)
-        '403':
-          description: '<b>Forbidden</b>: Supplied API key is not valid for this request'
-        '410':
-          description: '<b>Gone</b>: Request for unsupported format'
-        '500':
+        "403":
+          description: "<b>Forbidden</b>: Supplied API key is not valid for this request"
+        "410":
+          description: "<b>Gone</b>: Request for unsupported format"
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the TomTom Copyrights
             API service
       summary: Copyrights tile
       tags:
         - Copyrights
-  '/map/{versionNumber}/staticimage':
+  "/map/{versionNumber}/staticimage":
     get:
       description: |-
         The Static Image service renders a rectangular raster image
@@ -410,7 +398,7 @@ paths:
             Must be used with the <strong>width</strong> and
             <strong>height</strong> parameters; cannot be used with <strong>bbox</strong>.
             Uses EPSG:3857 projection (functionally equivalent to EPSG:900910).
-          example: '4.899886, 52.379031'
+          example: "4.899886, 52.379031"
           in: query
           name: center
           required: false
@@ -459,9 +447,9 @@ paths:
               - IN
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '400':
+        "400":
           description: |-
             <b>Bad Request</b>: Received by the interface, but there is an error
             in the request, such as:
@@ -473,23 +461,23 @@ paths:
             This code is returned if the required parameters of the request were
             malformed. A detailed exception explanation is returned in a
             response in form of Service Exception Report.
-        '403':
+        "403":
           description: |-
             <b>Forbidden</b>:
               - supplied API key is not valid for the request
               - the requested view is not available in the country where the request was sent from
-        '500':
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the Static Map
             Service.
-        '503':
+        "503":
           description: <b>Service currently unavailable.</b>
       summary: Static Image
       tags:
         - Raster
-  '/map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.pbf':
+  "/map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.pbf":
     get:
-      description: 'The Maps API Vector Service delivers vector tiles, which are representations of square sections of map data.'
+      description: "The Maps API Vector Service delivers vector tiles, which are representations of square sections of map data."
       parameters:
         - description: Version of the service to call. The current version is 1
           in: path
@@ -560,7 +548,7 @@ paths:
         - description: y coordinate of tile on zoom grid
           example: 0
           in: path
-          name: 'Y'
+          name: "Y"
           required: true
           schema:
             type: integer
@@ -582,9 +570,9 @@ paths:
             default: NGT
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '400':
+        "400":
           description: |-
             <b>Bad request</b>: Usually the result of malformed syntax:
               - the given combination of layer, style, and query parameters is not supported
@@ -592,23 +580,23 @@ paths:
               - x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)
               - y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)
               - the requested view is not supported
-        '403':
+        "403":
           description: |-
             <b>Forbidden</b>: 
               - the supplied API key is not valid for this request
               - the requested view is not available in your country
-        '500':
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the TomTom
             Maps API Vector Tile service
-        '503':
+        "503":
           description: <b>Service currently unavailable</b>.
       summary: Tile
       tags:
         - Vector
-  '/map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.{format}':
+  "/map/{versionNumber}/tile/{layer}/{style}/{zoom}/{X}/{Y}.{format}":
     get:
-      description: 'The Maps API Raster Service delivers raster tiles, which are representations of square sections of map data.'
+      description: "The Maps API Raster Service delivers raster tiles, which are representations of square sections of map data."
       parameters:
         - description: Version of the service to call. The current version is 1.
           in: path
@@ -680,7 +668,7 @@ paths:
         - description: y coordinate of tile on zoom grid
           example: 0
           in: path
-          name: 'Y'
+          name: "Y"
           required: true
           schema:
             type: integer
@@ -715,11 +703,11 @@ paths:
               - IN
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '302':
-          description: '<b>Found</b>: URL redirection'
-        '400':
+        "302":
+          description: "<b>Found</b>: URL redirection"
+        "400":
           description: |-
             <b>Bad request</b>: Usually the result of malformed syntax:
               - the given combination of layer, style, and query parameters is not supported
@@ -727,21 +715,21 @@ paths:
               - x n is out of range [0,m]: the requested x coordinate is out of the possible range (the value of m will vary depending on zoom level)
               - y n is out of range [0,m]: the requested y coordinate is out of the possible range (the value of m will vary depending on zoom level)
               - the requested view is not supported
-        '403':
+        "403":
           description: |-
             <b>Forbidden</b>:
               - the supplied API key is not valid for this request
               - the requested view is not available in the country where the request was sent from
-        '410':
-          description: '<b>Gone</b>: Request for unsupported format'
-        '500':
+        "410":
+          description: "<b>Gone</b>: Request for unsupported format"
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the TomTom
             Maps API Raster Tile service
       summary: Tile
       tags:
         - Raster
-  '/map/{versionNumber}/wms/':
+  "/map/{versionNumber}/wms/":
     get:
       description: |-
         The GetMap call implements the Web Map Service 1.1.1 standard
@@ -769,33 +757,33 @@ paths:
             Projection used in describing the <b>bbox</b> EPSG:3857 is
             recommended, particularly at higher zoom levels. (Note that
             EPSG:3857 is functionally equivalent to EPSG:900913/EPSG:3785)
-          example: 'EPSG:4326'
+          example: "EPSG:4326"
           in: query
           name: srs
           required: true
           schema:
             enum:
-              - 'EPSG:3857'
-              - 'EPSG:4326'
+              - "EPSG:3857"
+              - "EPSG:4326"
             type: string
         - description: |-
             Bounding box in the projection stated in <b>srs</b>
             (minLon,minLat,maxLon,maxLat)
-          example: '-0.489,51.28,0.236,51.686'
+          example: "-0.489,51.28,0.236,51.686"
           in: query
           name: bbox
           required: true
           schema:
             pattern: '^(-*\d+\.*\d*, *){3}(-*\d+\.*\d*)$'
             type: string
-        - description: 'Width of the resulting image, in pixels Maximum value is 2048'
+        - description: "Width of the resulting image, in pixels Maximum value is 2048"
           example: 512
           in: query
           name: width
           required: true
           schema:
             type: integer
-        - description: 'Height of the resulting image, in pixels Maximum value is 2048'
+        - description: "Height of the resulting image, in pixels Maximum value is 2048"
           example: 512
           in: query
           name: height
@@ -830,7 +818,7 @@ paths:
           required: false
           schema:
             enum:
-              - ''
+              - ""
             type: string
         - description: Service type
           in: query
@@ -849,9 +837,9 @@ paths:
               - 1.1.1
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '202':
+        "202":
           description: |-
             <b>Accepted</b>: Received by the interface, but there is a WMS exception in
             processing it. Possible causes include:
@@ -862,16 +850,16 @@ paths:
               
             This code is returned if the parameters of the request were malformed.
             The response includes a detailed explanation in the Service Exception Report.
-        '401':
-          description: '<b>Unauthorized</b>: Supplied API key is not valid for the request'
-        '500':
+        "401":
+          description: "<b>Unauthorized</b>: Supplied API key is not valid for the request"
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the TomTom WMS
             service
       summary: GetMap
       tags:
         - WMS / WMTS
-  '/map/{versionNumber}/wms//':
+  "/map/{versionNumber}/wms//":
     get:
       description: |-
         The GetCapabilities call is part of TomTom's implementation of version 1.1.1
@@ -909,9 +897,9 @@ paths:
               - 1.1.1
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '202':
+        "202":
           description: |-
             <b>Accepted</b>: Received by the interface, but there is a WMS exception in
             processing it. Possible causes include:
@@ -922,16 +910,16 @@ paths:
               
             This code is returned if the parameters of the request were malformed.
             The response includes a detailed explanation in the Service Exception Report.
-        '401':
-          description: '<b>Unauthorized</b>: Supplied API key is not valid for the request'
-        '500':
+        "401":
+          description: "<b>Unauthorized</b>: Supplied API key is not valid for the request"
+        "500":
           description: |-
             <b>Internal Server Error</b>: There is a problem with the TomTom WMS
             service
       summary: GetCapabilities
       tags:
         - WMS / WMTS
-  '/map/{versionNumber}/wmts/{key}/{wmtsVersion}/WMTSCapabilities.xml':
+  "/map/{versionNumber}/wmts/{key}/{wmtsVersion}/WMTSCapabilities.xml":
     get:
       description: |-
         The WMTS GetCapabilities call implements version 1.0.0 of
@@ -963,14 +951,14 @@ paths:
               - 1.0.0
             type: string
       responses:
-        '200':
+        "200":
           description: <b>OK</b>
-        '400':
-          description: '<b>Bad request</b>: Probably malformed syntax'
-        '401':
-          description: '<b>Unauthorized</b>: Supplied API key is not valid for this request'
-        '500':
-          description: '<b>Internal Server Error</b>: There is a problem with the TomTom WMTS service'
+        "400":
+          description: "<b>Bad request</b>: Probably malformed syntax"
+        "401":
+          description: "<b>Unauthorized</b>: Supplied API key is not valid for this request"
+        "500":
+          description: "<b>Internal Server Error</b>: There is a problem with the TomTom WMTS service"
       security: []
       summary: WMTS
       tags:
